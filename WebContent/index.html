@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Enterprise Application Development: Practical Assignment  I</title>
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<title>Enterprise Application Development: Practical Assignment
+  I</title>
+
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 
@@ -14,9 +21,73 @@
       <script src="assets/js/html5shiv.js"></script>
       <script src="assets/js/respond.min.js"></script>
       <![endif]-->
+<style>
+.searchbox {
+  text-align: center;
+  padding-top: 10%;
+}
 
+.searchbox .btn {
+  font-size: 21px;
+  padding-top: 10px;
+}
+</style>
 </head>
-<body>
 
+<body onload="init();">
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target=".navbar-collapse">
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+            class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Enterprise Application
+          Development: Practical Assignment I</a>
+      </div>
+
+    </div>
+    <!--/.navbar-collapse -->
+  </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="searchbox">
+        <div class="col-lg-12">
+
+          <form>
+            <label>Name: <input type="text" id="name"></label> <label>Roll:
+              <input type="text" id="roll">
+            </label> <label>Age: <input type="text" id="age"></label>
+
+          </form>
+          <button type="submit" class="btn" onclick="sql('create');">Create</button>
+          <button type="submit" class="btn" onclick="sql('update');">Update</button>
+          <button type="submit" class="btn" onclick="sql('delete');">Delete</button>
+
+        </div>
+
+      </div>
+      <hr />
+      <div class="row">
+        <br />
+        <table class="table table-bordered table-hover" id="main_table">
+          <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Age</th>
+          </tr>
+
+
+        </table>
+      </div>
+    </div>
+
+
+
+  </div>
 </body>
 </html>
