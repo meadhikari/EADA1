@@ -32,6 +32,33 @@
   padding-top: 10px;
 }
 </style>
+<script>
+        function validation()
+        {
+          var name = document.getElementById("name").value;
+          var roll = document.getElementById("roll").value;
+          var age = document.getElementById("age").value;
+
+          if (name == "" || roll == "" || age == "")
+          {
+            alert("Fields Can't be empty");
+            console.log("Empty");
+            return false;
+          } 
+          else
+          {
+            return true;
+          }
+        }
+       
+        function init()
+        {
+          console.log("document loaded");
+          // need to load the table here
+          
+        }
+      </script>
+
 </head>
 
 <body onload="init();">
