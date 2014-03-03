@@ -31,7 +31,7 @@ public class MainServelet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+		response.getWriter().println("GET");
 	}
 
 	/**
@@ -39,7 +39,33 @@ public class MainServelet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String operation = request.getParameter("operation");
+
+		String name = request.getParameter("name");
+		String roll = request.getParameter("roll");
+		String age = request.getParameter("age");
+
+		
+		
+		if (operation.equals("create")){
+			MysqlAccess db =  new MysqlAccess();
 			
+			
+			try {
+				response.getWriter().println(db.readDataBase());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}}
+		else if (operation.equals("update")){
+			response.getWriter().println("update Operation was called");}
+		else if (operation.equals("delete")){
+			response.getWriter().println("Delete Operation was called");}
+		else{
+			response.getWriter().println("Delete Operation was called");}
+		
+		
 	}
 
 }
