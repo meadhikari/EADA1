@@ -50,7 +50,74 @@
             return true;
           }
         }
-       
+        function sql(operation)
+        {
+          switch (operation)
+          {
+            case "create":
+              if (validation()){
+                table = document.getElementById("main_table");
+                var name = document.getElementById("name").value;
+                var roll = document.getElementById("roll").value;
+                var age = document.getElementById("age").value;
+                row = createTableRow(name,roll,age);
+                table.appendChild(row);
+                xmlhttp = new XMLHttpRequest();
+                
+                xmlhttp.open("POST","MainServelet",false);
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send('operation=create&name='+name+'&roll='+roll+'&age='+age);
+                xmlDoc = xmlhttp.responseText;
+                console.log(xmlDoc);
+                
+                
+              }
+              break;
+            case "update":
+              if (validation()){
+              var name = document.getElementById("name").value;
+            var roll = document.getElementById("roll").value;
+            var age = document.getElementById("age").value;
+            row = createTableRow(name,roll,age);
+            
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST","MainServelet",false);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send('operation=update&name='+name+'&roll='+roll+'&age='+age);
+            xmlDoc = xmlhttp.responseText;
+            console.log(xmlDoc);
+              }
+              break;
+            case "delete":
+              if (validation()){
+              var name = document.getElementById("name").value;
+            var roll = document.getElementById("roll").value;
+            var age = document.getElementById("age").value;
+            row = createTableRow(name,roll,age);
+            
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST","MainServelet",false);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send('operation=delete&name='+name+'&roll='+roll+'&age='+age);
+            xmlDoc = xmlhttp.responseText;
+            console.log(xmlDoc);
+              }
+              break;
+          } 
+        }
+        function createTableRow(name,roll,age)
+        {
+
+          var row=document.createElement('tr');
+          var cell1=row.insertCell(0);
+          var cell2=row.insertCell(1);
+          var cell3=row.insertCell(2);
+          cell1.innerHTML=name;
+          cell2.innerHTML=roll;
+          cell3.innerHTML=age;
+          
+          return row;
+        }
         function init()
         {
           console.log("document loaded");
